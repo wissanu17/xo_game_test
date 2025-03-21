@@ -1,9 +1,9 @@
 # Tic-Tac-Toe Project
 
-## Setup Instructions
+## Setup Instruction
 
-### Prerequisites
-- Download this 
+### Prerequisite
+- Download the folder of project 
 - Node.js
 - MySQL database
 - Bun (optional, for faster package management)
