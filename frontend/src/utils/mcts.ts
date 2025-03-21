@@ -132,7 +132,7 @@ export class MCTS {
   iterations: number;
   maxTime: number;
   consecutiveToWin: number;
-
+  
   constructor(iterations: number = 1000, maxTime: number = 2000, consecutiveToWin: number = 3) {
     this.iterations = iterations;
     this.maxTime = maxTime;

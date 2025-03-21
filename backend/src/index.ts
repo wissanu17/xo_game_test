@@ -35,10 +35,10 @@ app.use(cors({
 // Routes
 app.use('/api/games', gameRoutes);
 
-// Health Check route
-app.get('/health', (req, res) => {
-  res.status(200).json({ status: 'ok', message: 'Server is running' });
-});
+// Health Check route auto
+// app.get('/health', (req, res) => {
+//   res.status(200).json({ status: 'ok', message: 'Server is running' });
+// });
 
 // Error handling middleware
 app.use((err: Error, req: express.Request, res: express.Response, next: express.NextFunction) => {

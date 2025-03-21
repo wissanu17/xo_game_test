@@ -71,19 +71,19 @@ export function isBoardFull(board: (string | null)[]): boolean {
   return board.every(cell => cell !== null);
 }
 
-// Get best move for the computer using MCTS algorithm
+// Get best move for the computer using MCTS
 export function getBestMove(
   board: (string | null)[],
   size: number = 3,
   computerSymbol: string = 'O',
   consecutiveToWin: number = 3
 ): number {
-  // Always use MCTS for all board sizes
+  // MCTS for all board sizes
   const iterationsBySize = {
-    3: 2000,  // More iterations for classic size for stronger play
-    4: 3000,  // Balanced for 4x4
-    5: 4000,  // Fewer for larger boards for performance
-    6: 7000    // Even fewer for 6x6 due to branching factor
+    3: 2000,
+    4: 3000,
+    5: 4000,
+    6: 8000
   };
 
   // Get appropriate iteration count based on board size

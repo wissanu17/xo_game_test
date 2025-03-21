@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getCompletedGames, getGame, Game, Move, deleteGame } from '../utils/gameService';
+import { getCompletedGames, getGame, Game, deleteGame } from '../utils/gameService';
 
 const ReplayPage: React.FC = () => {
   // Game state
