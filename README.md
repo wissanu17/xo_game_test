@@ -45,7 +45,6 @@
    ```
    DATABASE_URL="mysql://username:password@localhost:3306/tic_tac_toe_db"
    PORT=3001
-   ALLOWED_ORIGINS="http://localhost:3000"
    ```
 4. Run Prisma migrations:
    ```
