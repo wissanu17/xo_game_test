@@ -56,7 +56,6 @@ const PlayPage: React.FC = () => {
               </button>
             </div>
           </div>
-
           {/* Board size selection */}
           <div className="flex-1">
             <h2 className="text-lg font-semibold mb-3 text-white/90">Board Size</h2>
@@ -77,7 +76,11 @@ const PlayPage: React.FC = () => {
           </div>
         </div>
       </div>
-
+      <div className="flex flex-col items-center">
+        <p className="text-lg font-medium mb-4 text-white/90">
+          Get {boardSize} in a row to win!
+        </p>
+      </div>
       {/* Main game board */}
       <div className="flex justify-center">
         <Board
