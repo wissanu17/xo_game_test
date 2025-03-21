@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getCompletedGames, getGame, Game, Move } from '../utils/gameService';
+import { getCompletedGames, getGame, Game, Move, deleteGame } from '../utils/gameService';
 
 const ReplayPage: React.FC = () => {
   // Game state
@@ -123,6 +123,22 @@ const ReplayPage: React.FC = () => {
     return `${winnerName} Won`;
   };
 
+  // Function to remove a game
+  const removeGame = async (id: string) => {
+    try {
+      setIsLoading(true);
+      // Call the remove game service (assuming it exists)
+      await deleteGame(id);
+      // Fetch the updated list of games
+      fetchGames();
+      setIsLoading(false);
+    } catch (err) {
+      console.error('Error removing game:', err);
+      setError('Failed to remove game. Please try again later.');
+      setIsLoading(false);
+    }
+  };
+
   console.log('Current board state:', currentBoard);
 
   return (
@@ -185,6 +201,15 @@ const ReplayPage: React.FC = () => {
                       {formatDate(game.createdAt)}
                     </div>
                   </div>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      removeGame(game.id);
+                    }}
+                    className="mt-2 px-3 py-1 text-sm font-semibold text-red-600 bg-red-100 rounded-lg hover:bg-red-200 transition-colors duration-200"
+                  >
+                    Remove Replay
+                  </button>
                 </div>
               ))}
             </div>

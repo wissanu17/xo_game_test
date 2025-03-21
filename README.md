@@ -3,7 +3,7 @@
 ## Setup Instructions
 
 ### Prerequisites
-- Download this folder
+- Download this 
 - Node.js
 - MySQL database
 - Bun (optional, for faster package management)
@@ -64,7 +64,7 @@
 - **Two Player Mode**: Play locally against a friend
 - **Adjustable Board Size**: Play on 3×3, 4×4, 5×5, or 6×6 grids
 - **Game History**: Save all your games to the database
-- **Game Replay**: Watch replays of past games move by move
+- **Game Replay**: Watch replays of past games move by move and can delete history
 
 ## Tech Stack
 
@@ -72,7 +72,6 @@
 - **React 18** with TypeScript
 - **Vite** for fast development and optimized builds
 - **Tailwind CSS**: For styling
-- **Client-side routing** without React Router or other routing dependencies
 
 ### Backend
 - **Express.js** web server
@@ -105,6 +104,7 @@ The database revolves around two main models:
 - `GET /api/games/:id`: Get details of a specific game
 - `POST /api/games`: Create a new game
 - `PATCH /api/games/:id`: Update game (e.g., set winner)
+- `DELETE /api/games/:id`: Delete a game
 
 ### Move Management
 - `POST /api/games/:id/moves`: Add a move to a game

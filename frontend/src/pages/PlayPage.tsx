@@ -87,7 +87,7 @@ const PlayPage: React.FC = () => {
         />
       </div>
       {/* Score board */}
-      <div className="mb-10">
+      <div className="flex justify-center mb-10">
         <ScoreBoard
           scores={scores}
           gameType={gameType}

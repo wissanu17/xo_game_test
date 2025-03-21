@@ -59,7 +59,7 @@ function App() {
       case '/replays':
         return <ReplayPage />;
       default:
-        // Simple 404 page
+        // 404 page
         return (
           <NotFoundPage />
         );
