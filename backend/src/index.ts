@@ -9,23 +9,28 @@ dotenv.config();
 // Setup Express app
 const app = express();
 const PORT = process.env.PORT || 3001;
-const allowedOrigins = process.env.ALLOWED_ORIGINS?.split(',') || ['http://localhost:3000'];
+// const allowedOrigins = process.env.ALLOWED_ORIGINS?.split(',') || ['http://localhost:3000'];
 
 // Middleware
 app.use(express.json());
-app.use(cors({
-  origin: (origin, callback) => {
-    // Allow requests with no origin (like mobile apps, curl requests)
-    if (!origin) return callback(null, true);
+// app.use(cors({
+//   origin: (origin, callback) => {
+//     if (!origin) return callback(null, true);
 
-    if (allowedOrigins.indexOf(origin) === -1) {
-      const msg = `The CORS policy for this site does not allow access from the specified Origin: ${origin}`;
-      return callback(new Error(msg), false);
-    }
-    return callback(null, true);
-  },
+//     if (allowedOrigins.indexOf(origin) === -1) {
+//       const msg = `The CORS policy for this site does not allow access from the specified Origin: ${origin}`;
+//       return callback(new Error(msg), false);
+//     }
+//     return callback(null, true);
+//   },
+//   credentials: true
+// }));
+
+app.use(cors({
+  origin: 'http://localhost:3000',
   credentials: true
 }));
+
 
 // Routes
 app.use('/api/games', gameRoutes);
