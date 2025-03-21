@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <rect width="512" height="512" fill="#121212" rx="64" ry="64"/>
+
+  <!-- X mark in green -->
+  <path d="M106,106 L225,225 M106,225 L225,106" stroke="#4ade80" stroke-width="24" stroke-linecap="round" fill="none" />
+
+  <!-- O mark in blue -->
+  <circle cx="350" cy="350" r="75" stroke="#60a5fa" stroke-width="24" fill="none" />
+
+  <!-- Grid lines -->
+  <path stroke="#ffffff" stroke-width="8" fill="none" opacity="0.3" d="M175,256 L425,256 M256,175 L256,425" />
+</svg>

@@ -1,0 +1,45 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+
+// This is your Prisma schema file
+// Learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// Game data model to store completed games
+model Game {
+  id          String       @id @default(uuid())
+  createdAt   DateTime     @default(now())
+  gameType    String       // 'onePlayer' or 'twoPlayer'
+  boardSize   Int          @default(3)
+  winner      String?      // 'player1', 'player2', 'tie', or null if game wasn't completed
+  player1Name String       @default("Player 1")
+  player2Name String       @default("Computer")
+  moves       Move[]       // One-to-many relationship with the Move model
+  
+  @@index([createdAt])
+}
+
+// Move data model to store each move in the game
+model Move {
+  id        String   @id @default(uuid())
+  gameId    String
+  position  Int      // Board position index
+  symbol    String   // 'X' or 'O'
+  moveOrder Int      // Order of moves (1, 2, 3, etc.)
+  timestamp DateTime @default(now())
+  game      Game     @relation(fields: [gameId], references: [id], onDelete: Cascade)
+
+  @@index([gameId, moveOrder])
+}

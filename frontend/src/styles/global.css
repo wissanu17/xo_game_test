@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+body {
+  @apply bg-gray-900 text-white font-sans antialiased;
+  background: linear-gradient(to bottom right, #121212, #1e1e1e);
+  min-height: 100vh;
+}
+
+/* Custom component classes */
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-lg font-semibold transition-all duration-200;
+  }
+
+  .btn-primary {
+    @apply btn bg-player-x text-black hover:bg-opacity-90;
+  }
+
+  .btn-secondary {
+    @apply btn bg-player-o text-black hover:bg-opacity-90;
+  }
+
+  .btn-outline {
+    @apply btn bg-transparent border border-white/20 hover:bg-white/10;
+  }
+
+  .board-cell {
+    @apply flex items-center justify-center w-full h-full bg-white/5 rounded-lg
+           transition-all duration-300 border-2 border-white/5;
+  }
+
+  .board-cell-x {
+    @apply board-cell shadow-player-x border-player-x;
+  }
+
+  .board-cell-o {
+    @apply board-cell shadow-player-o border-player-o;
+  }
+
+  .container-game {
+    @apply max-w-7xl mx-auto px-4 py-12;
+  }
+
+  .card {
+    @apply bg-white/5 rounded-2xl border border-white/10 p-6;
+  }
+}
+
+/* Animation classes */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slideUp {
+  animation: slideUp 0.3s ease-out;
+}
+
+/* Custom effects */
+.glow-text-x {
+  text-shadow: 0 0 8px #4ade80;
+}
+
+.glow-text-o {
+  text-shadow: 0 0 8px #60a5fa;
+}
+
+.glow-text-tie {
+  text-shadow: 0 0 8px #a855f7;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-white/5 rounded-full;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-white/20 rounded-full hover:bg-white/30;
+}
