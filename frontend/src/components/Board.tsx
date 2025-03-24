@@ -49,10 +49,14 @@ const Board = ({ gameType, onGameEnd, boardSize = 3 }: BoardProps) => {
   useEffect(() => {
     // Always use 3 as the consecutive count needed to win
     // const consecutiveToWin = 3
-    let consecutiveToWin = 3; // ค่าเริ่มต้น
-    if (boardSize === 4) consecutiveToWin = 4;
-    if (boardSize === 5) consecutiveToWin = 5;
-    else if (boardSize > 5) consecutiveToWin = 6;
+
+    let consecutiveToWin = 3; // Default value
+    if (boardSize === 4) consecutiveToWin = 3;
+    if (boardSize === 5) consecutiveToWin = 4;
+    else if (boardSize >= 6) consecutiveToWin = 5;
+
+    // let consecutiveToWin =  boardSize;
+
     const currentWinner = checkWinner(board, boardSize, consecutiveToWin)
     const isBoardFull = board.every(square => square !== null)
     
@@ -109,8 +113,10 @@ const Board = ({ gameType, onGameEnd, boardSize = 3 }: BoardProps) => {
   const computerMove = useCallback(() => {
     if (gameOver) return
     
-    // Always use 3 as the consecutive count needed to win
-    const consecutiveToWin = 3
+    let consecutiveToWin = 3; // Default value
+    if (boardSize === 4) consecutiveToWin = 3;
+    if (boardSize === 5) consecutiveToWin = 4;
+    else if (boardSize >= 6) consecutiveToWin = 5;
     
     // Call the AI with the correct winning condition
     const bestMoveIndex = getBestMove(board, boardSize, 'O', consecutiveToWin)
@@ -134,7 +140,7 @@ const Board = ({ gameType, onGameEnd, boardSize = 3 }: BoardProps) => {
     if (gameType === 'onePlayer' && !isXNext && !gameOver) {
       timer = setTimeout(() => {
         computerMove()
-      }, 600)
+      }, 1000)
     }
     
     return () => {
