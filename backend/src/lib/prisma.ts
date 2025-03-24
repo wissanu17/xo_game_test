@@ -8,9 +8,11 @@ declare global {
 // Use the existing Prisma instance if it exists, otherwise create a new one
 const prisma = global.prisma || new PrismaClient();
 
+// console.log("Creating PrismaClient instance", process.env.NODE_ENV);
+
 // Save the Prisma instance on the global object in development to prevent multiple instances
-if (process.env.NODE_ENV === 'development') {
-  global.prisma = prisma;
-}
+// if (process.env.NODE_ENV === 'development') {
+//   global.prisma = prisma;
+// }
 
 export default prisma;

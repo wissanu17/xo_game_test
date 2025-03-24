@@ -51,7 +51,8 @@ const Board = ({ gameType, onGameEnd, boardSize = 3 }: BoardProps) => {
     // const consecutiveToWin = 3
     let consecutiveToWin = 3; // ค่าเริ่มต้น
     if (boardSize === 4) consecutiveToWin = 4;
-    else if (boardSize >= 5) consecutiveToWin = 5;
+    if (boardSize === 5) consecutiveToWin = 5;
+    else if (boardSize > 5) consecutiveToWin = 6;
     const currentWinner = checkWinner(board, boardSize, consecutiveToWin)
     const isBoardFull = board.every(square => square !== null)
     
