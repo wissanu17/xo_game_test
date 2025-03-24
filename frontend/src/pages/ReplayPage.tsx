@@ -11,7 +11,7 @@ const ReplayPage: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [pagination, setPagination] = useState({
     page: 1,
-    limit: 10,
+    limit: 7,
     total: 0,
     pages: 0
   });
